@@ -1,0 +1,3863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JA TRADING COMPANY | Professional Trading Journal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== CSS WILL CONTINUE IN PART 5 ===== */
+
+/* ==========================================
+   JA TRADING COMPANY
+   PROFESSIONAL TRADING JOURNAL v2
+   PART 5A
+========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#060606;
+color:#ffffff;
+line-height:1.5;
+}
+
+.container{
+width:95%;
+max-width:1450px;
+margin:auto;
+padding:20px 0 40px;
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+padding:20px 25px;
+margin-bottom:25px;
+border:1px solid #2f2f2f;
+border-radius:18px;
+background:linear-gradient(135deg,#151515,#090909);
+box-shadow:0 0 25px rgba(255,215,0,.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.logoBox{
+width:70px;
+height:70px;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+font-weight:700;
+background:gold;
+color:#111;
+}
+
+header h1{
+font-size:30px;
+color:gold;
+}
+
+header p{
+color:#aaa;
+font-size:14px;
+margin-top:3px;
+}
+
+.clock{
+text-align:right;
+}
+
+#liveClock{
+font-size:26px;
+font-weight:bold;
+color:gold;
+}
+
+#todayDate{
+margin-top:5px;
+color:#bbb;
+}
+
+/* ===========================
+DASHBOARD
+=========================== */
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+background:#121212;
+border:1px solid #2d2d2d;
+border-radius:18px;
+padding:22px;
+transition:.35s;
+box-shadow:0 0 18px rgba(255,215,0,.05);
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:gold;
+}
+
+.card h3{
+font-size:15px;
+color:#a5a5a5;
+margin-bottom:12px;
+}
+
+.card h1{
+font-size:34px;
+color:gold;
+}
+
+/* ===========================
+SMALL CARDS
+=========================== */
+
+.statsGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+margin-bottom:30px;
+}
+
+.smallCard{
+background:#111;
+border:1px solid #303030;
+border-radius:16px;
+padding:18px;
+text-align:center;
+transition:.3s;
+}
+
+.smallCard:hover{
+border-color:gold;
+transform:translateY(-4px);
+}
+
+.smallCard h4{
+color:#999;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.smallCard h2{
+color:gold;
+font-size:28px;
+}
+
+/* ===========================
+JOURNAL
+=========================== */
+
+.journal{
+background:#101010;
+border:1px solid #2f2f2f;
+border-radius:20px;
+padding:25px;
+margin-bottom:30px;
+box-shadow:0 0 20px rgba(255,215,0,.04);
+}
+
+.journal h2{
+color:gold;
+margin-bottom:20px;
+font-size:26px;
+}
+
+.row{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-bottom:20px;
+}
+
+.grid2{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.grid3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.inputGroup{
+display:flex;
+flex-direction:column;
+}
+
+.inputGroup.full{
+grid-column:1/-1;
+}
+
+.inputGroup label{
+margin-bottom:8px;
+font-size:15px;
+color:#d2d2d2;
+}
+
+/* ===========================
+INPUTS
+=========================== */
+
+input,
+select,
+textarea{
+width:100%;
+padding:13px 15px;
+background:#080808;
+border:1px solid #404040;
+border-radius:12px;
+color:white;
+font-size:15px;
+outline:none;
+transition:.25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:gold;
+box-shadow:0 0 12px rgba(255,215,0,.18);
+}
+
+textarea{
+resize:vertical;
+min-height:120px;
+}
+
+/* Date Picker */
+
+input[type="date"]{
+color:white;
+color-scheme:dark;
+cursor:pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+filter:invert(1);
+cursor:pointer;
+}
+
+/* Range */
+
+input[type="range"]{
+accent-color:gold;
+padding:0;
+height:6px;
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+button{
+background:gold;
+color:#111;
+padding:13px 22px;
+border:none;
+border-radius:12px;
+font-weight:700;
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 15px rgba(255,215,0,.35);
+}
+
+.buttonGrid{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+
+/* ===========================
+CHECKLIST
+=========================== */
+
+.checkGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.checkGrid label{
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px;
+background:#151515;
+border:1px solid #303030;
+border-radius:12px;
+cursor:pointer;
+transition:.25s;
+}
+
+.checkGrid label:hover{
+border-color:gold;
+background:#1b1b1b;
+}
+
+.checkGrid input{
+width:18px;
+height:18px;
+accent-color:gold;
+}
+
+
+/* ===========================
+PSYCHOLOGY
+=========================== */
+
+.sliderBox{
+background:#141414;
+padding:18px;
+border-radius:15px;
+border:1px solid #333;
+}
+
+.sliderBox label{
+display:block;
+margin-bottom:10px;
+font-weight:600;
+}
+
+.sliderBox span{
+display:block;
+margin-top:10px;
+font-size:18px;
+font-weight:bold;
+color:gold;
+text-align:center;
+}
+
+.psychologyScore{
+margin-top:25px;
+padding:25px;
+text-align:center;
+background:#141414;
+border-radius:18px;
+border:1px solid #333;
+}
+
+.psychologyScore h3{
+color:#bbb;
+margin-bottom:12px;
+}
+
+.psychologyScore h1{
+font-size:46px;
+color:gold;
+}
+
+
+/* ===========================
+RISK CARDS
+=========================== */
+
+.riskCards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:25px;
+}
+
+.riskCard{
+background:#141414;
+padding:20px;
+text-align:center;
+border-radius:15px;
+border:1px solid #333;
+transition:.3s;
+}
+
+.riskCard:hover{
+border-color:gold;
+transform:translateY(-5px);
+}
+
+.riskCard h4{
+color:#999;
+margin-bottom:10px;
+}
+
+.riskCard h2{
+color:gold;
+font-size:30px;
+}
+
+
+/* ===========================
+CALENDAR
+=========================== */
+
+.calendarGrid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.dayHead{
+background:gold;
+color:#111;
+font-weight:bold;
+text-align:center;
+padding:12px;
+border-radius:10px;
+}
+
+.dayCell{
+background:#151515;
+border:1px solid #333;
+border-radius:12px;
+padding:18px;
+text-align:center;
+cursor:pointer;
+transition:.25s;
+user-select:none;
+}
+
+.dayCell:hover{
+border-color:gold;
+transform:scale(1.05);
+}
+
+.dayProfit{
+background:#155724;
+border-color:#2ecc71;
+}
+
+.dayLoss{
+background:#5b1515;
+border-color:#ff4d4d;
+}
+
+.dayNeutral{
+background:#202020;
+}
+
+
+/* ===========================
+TABLE
+=========================== */
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:gold;
+color:#111;
+padding:14px;
+}
+
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #333;
+background:#111;
+}
+
+tr:hover td{
+background:#1a1a1a;
+}
+
+
+/* ===========================
+GALLERY
+=========================== */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+border:2px solid #333;
+transition:.3s;
+}
+
+.gallery img:hover{
+border-color:gold;
+transform:scale(1.03);
+}
+
+
+/* ===========================
+RULEBOOK
+=========================== */
+
+.ruleContainer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.ruleCard{
+background:#141414;
+border:1px solid #333;
+padding:20px;
+border-radius:18px;
+}
+
+.ruleCard h3{
+color:gold;
+margin-bottom:15px;
+}
+
+.ruleCard ul{
+padding-left:20px;
+}
+
+.ruleCard li{
+margin-bottom:12px;
+line-height:1.6;
+}
+
+
+/* ===========================
+ACHIEVEMENTS
+=========================== */
+
+.smallCard{
+transition:.3s;
+}
+
+.smallCard:hover{
+box-shadow:0 0 20px rgba(255,215,0,.15);
+}
+
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+margin-top:50px;
+padding:30px;
+text-align:center;
+border-top:1px solid #333;
+color:#999;
+}
+
+footer h3{
+color:gold;
+margin-bottom:10px;
+}
+
+/* ===========================
+EQUITY CHART
+=========================== */
+
+canvas{
+width:100%;
+display:block;
+background:#0f0f0f;
+border:1px solid #333;
+border-radius:18px;
+padding:10px;
+margin-top:20px;
+}
+
+/* ===========================
+CUSTOM SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+width:10px;
+height:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#0b0b0b;
+}
+
+::-webkit-scrollbar-thumb{
+background:gold;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ffd700;
+}
+
+/* ===========================
+STATUS COLORS
+=========================== */
+
+.profit{
+color:#2ecc71;
+font-weight:bold;
+}
+
+.loss{
+color:#ff4d4d;
+font-weight:bold;
+}
+
+.warning{
+color:#ff9800;
+font-weight:bold;
+}
+
+.safe{
+color:#2ecc71;
+font-weight:bold;
+}
+
+/* ===========================
+BADGES
+=========================== */
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:30px;
+background:gold;
+color:#111;
+font-weight:700;
+font-size:13px;
+margin:5px;
+}
+
+.locked{
+background:#333;
+color:#aaa;
+}
+
+/* ===========================
+QUOTE BOX
+=========================== */
+
+.quoteBox{
+margin-top:20px;
+padding:20px;
+background:#141414;
+border-left:5px solid gold;
+border-radius:12px;
+font-style:italic;
+color:#ddd;
+}
+
+/* ===========================
+ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(20px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.card,
+.smallCard,
+.journal,
+.ruleCard,
+.riskCard{
+animation:fadeUp .5s ease;
+}
+
+/* ===========================
+HOVER EFFECTS
+=========================== */
+
+button:active{
+transform:scale(.98);
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+border-color:#777;
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+header{
+flex-direction:column;
+gap:20px;
+text-align:center;
+}
+
+.clock{
+text-align:center;
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+width:96%;
+}
+
+.dashboard{
+grid-template-columns:1fr;
+}
+
+.statsGrid{
+grid-template-columns:1fr 1fr;
+}
+
+.grid2,
+.grid3,
+.row,
+.ruleContainer{
+grid-template-columns:1fr;
+}
+
+.buttonGrid{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+
+.calendarGrid{
+grid-template-columns:repeat(7,1fr);
+gap:5px;
+}
+
+.dayCell{
+padding:10px;
+font-size:14px;
+}
+
+.logo{
+flex-direction:column;
+text-align:center;
+}
+
+header h1{
+font-size:24px;
+}
+
+.card h1{
+font-size:28px;
+}
+
+}
+
+@media(max-width:500px){
+
+.statsGrid{
+grid-template-columns:1fr;
+}
+
+.dayHead{
+font-size:12px;
+padding:8px;
+}
+
+.dayCell{
+font-size:12px;
+padding:8px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+table{
+font-size:12px;
+}
+
+th,
+td{
+padding:8px;
+}
+
+}
+
+/* ===========================
+FINAL TOUCHES
+=========================== */
+
+::selection{
+background:gold;
+color:#111;
+}
+
+hr{
+border:none;
+height:1px;
+background:#333;
+margin:25px 0;
+}
+
+.hidden{
+display:none;
+}
+
+.center{
+text-align:center;
+}
+
+.gold{
+color:gold;
+}
+
+.mt20{
+margin-top:20px;
+}
+
+.mb20{
+margin-bottom:20px;
+}
+
+.shadow{
+box-shadow:0 0 20px rgba(255,215,0,.12);
+}
+
+.round{
+border-radius:18px;
+}
+
+/* ===== END OF CSS ===== */
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+
+<header>
+
+<div class="logo">
+
+<div class="logoBox">
+JA
+</div>
+
+<div>
+
+<h1>JA TRADING COMPANY</h1>
+
+<p>
+Professional Trading Journal v2
+</p>
+
+</div>
+
+</div>
+
+<div class="clock">
+
+<div id="liveClock">
+00:00:00
+</div>
+
+<div id="todayDate">
+Loading...
+</div>
+
+</div>
+
+</header>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- DASHBOARD -->
+<!-- ========================================= -->
+
+<section class="dashboard">
+
+<div class="card">
+
+<h3>Current Balance</h3>
+
+<h1 id="currentBalanceDisplay">
+₹1000
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Today's P/L</h3>
+
+<h1 id="todayPnL">
+₹0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Buffer Zone</h3>
+
+<h1 id="bufferStatus">
+SAFE
+</h1>
+
+<p>
+Stop Trading Below ₹750
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Trading Streak</h3>
+
+<h1 id="streak">
+0 Days
+</h1>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- QUICK STATISTICS -->
+<!-- ========================================= -->
+
+<section class="statsGrid">
+
+<div class="smallCard">
+
+<h4>Total Trades</h4>
+
+<h2 id="totalTrades">
+0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Wins</h4>
+
+<h2 id="wins">
+0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Losses</h4>
+
+<h2 id="losses">
+0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Win Rate</h4>
+
+<h2 id="winRate">
+0%
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Average RR</h4>
+
+<h2 id="avgRR">
+0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Psychology</h4>
+
+<h2 id="mindScore">
+0%
+</h2>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- DAILY JOURNAL -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>
+📖 Daily Trading Journal
+</h2>
+
+<div class="row">
+
+<div class="inputGroup">
+
+<label>
+
+Trading Date
+
+</label>
+
+<input
+type="date"
+id="tradeDate">
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Trading Session
+
+</label>
+
+<select id="session">
+
+<option>London</option>
+<option>New York</option>
+<option>Asian</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+<div class="inputGroup">
+
+<label>
+
+Starting Balance
+
+</label>
+
+<input
+type="number"
+id="startingBalance"
+placeholder="1000">
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Ending Balance
+
+</label>
+
+<input
+type="number"
+id="endingBalance"
+placeholder="1025">
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+<div class="inputGroup full">
+
+<label>
+
+Trading Pair
+
+</label>
+
+<select id="pair">
+
+<option>XAUUSD</option>
+<option>BTCUSD</option>
+<option>EURUSD</option>
+<option>GBPUSD</option>
+<option>USDJPY</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+<div class="inputGroup">
+
+<label>
+
+Direction
+
+</label>
+
+<select id="direction">
+
+<option>BUY</option>
+<option>SELL</option>
+
+</select>
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Result
+
+</label>
+
+<select id="result">
+
+<option>WIN</option>
+<option>LOSS</option>
+<option>BREAKEVEN</option>
+
+</select>
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+
+Risk Reward
+
+</label>
+
+<input
+type="text"
+id="rr"
+placeholder="1:3">
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+<div class="inputGroup full">
+
+<label>
+
+Trade Notes
+
+</label>
+
+<textarea
+id="notes"
+rows="6"
+placeholder="Write why you entered this trade..."></textarea>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- JA DL CHECKLIST -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>✅ JA DL Trading Checklist</h2>
+
+<div class="checkGrid">
+
+<label><input type="checkbox" id="c1"> Daily Bias Confirmed</label>
+
+<label><input type="checkbox" id="c2"> Market Trend Identified</label>
+
+<label><input type="checkbox" id="c3"> Liquidity Sweep Confirmed</label>
+
+<label><input type="checkbox" id="c4"> MSS / BOS Formed</label>
+
+<label><input type="checkbox" id="c5"> Entry at Discount / Premium</label>
+
+<label><input type="checkbox" id="c6"> Risk = ₹25</label>
+
+<label><input type="checkbox" id="c7"> RR Minimum 1:3</label>
+
+<label><input type="checkbox" id="c8"> No Revenge Trading</label>
+
+<label><input type="checkbox" id="c9"> Maximum 3 Trades Today</label>
+
+<label><input type="checkbox" id="c10"> Followed Trading Plan</label>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- PSYCHOLOGY -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>🧠 Psychology Tracker</h2>
+
+<div class="grid2">
+
+<div class="sliderBox">
+
+<label>Discipline</label>
+
+<input
+type="range"
+id="discipline"
+min="0"
+max="10"
+value="5">
+
+<span id="disciplineValue">5</span>
+
+</div>
+
+<div class="sliderBox">
+
+<label>Patience</label>
+
+<input
+type="range"
+id="patience"
+min="0"
+max="10"
+value="5">
+
+<span id="patienceValue">5</span>
+
+</div>
+
+<div class="sliderBox">
+
+<label>Confidence</label>
+
+<input
+type="range"
+id="confidence"
+min="0"
+max="10"
+value="5">
+
+<span id="confidenceValue">5</span>
+
+</div>
+
+<div class="sliderBox">
+
+<label>Fear</label>
+
+<input
+type="range"
+id="fear"
+min="0"
+max="10"
+value="5">
+
+<span id="fearValue">5</span>
+
+</div>
+
+<div class="sliderBox">
+
+<label>Greed</label>
+
+<input
+type="range"
+id="greed"
+min="0"
+max="10"
+value="5">
+
+<span id="greedValue">5</span>
+
+</div>
+
+<div class="sliderBox">
+
+<label>FOMO</label>
+
+<input
+type="range"
+id="fomo"
+min="0"
+max="10"
+value="5">
+
+<span id="fomoValue">5</span>
+
+</div>
+
+</div>
+
+<div class="psychologyScore">
+
+<h3>Psychology Score</h3>
+
+<h1 id="psychologyScore">
+50%
+</h1>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- RISK MANAGER -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>💰 Risk Manager</h2>
+
+<div class="grid3">
+
+<div class="inputGroup">
+
+<label>Capital</label>
+
+<input
+type="number"
+id="capital"
+value="1000">
+
+</div>
+
+<div class="inputGroup">
+
+<label>Risk Per Trade</label>
+
+<input
+type="number"
+id="riskPerTrade"
+value="25">
+
+</div>
+
+<div class="inputGroup">
+
+<label>Maximum Trades</label>
+
+<input
+type="number"
+id="maxTrades"
+value="3">
+
+</div>
+
+</div>
+
+<div class="riskCards">
+
+<div class="riskCard">
+
+<h4>Daily Risk</h4>
+
+<h2 id="dailyRisk">
+₹75
+</h2>
+
+</div>
+
+<div class="riskCard">
+
+<h4>Risk %</h4>
+
+<h2 id="riskPercent">
+2.5%
+</h2>
+
+</div>
+
+<div class="riskCard">
+
+<h4>Buffer Zone</h4>
+
+<h2>
+₹750
+</h2>
+
+</div>
+
+<div class="riskCard">
+
+<h4>Buffer Remaining</h4>
+
+<h2 id="bufferRemaining">
+₹250
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- DAILY GOALS -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>🎯 Daily Goals</h2>
+
+<div class="checkGrid">
+
+<label><input type="checkbox"> Morning Analysis Completed</label>
+
+<label><input type="checkbox"> News Checked</label>
+
+<label><input type="checkbox"> Waited For Setup</label>
+
+<label><input type="checkbox"> Entered Only A+ Setup</label>
+
+<label><input type="checkbox"> Followed JA DL Rules</label>
+
+<label><input type="checkbox"> Maximum 3 Trades</label>
+
+<label><input type="checkbox"> No Emotional Trading</label>
+
+<label><input type="checkbox"> Journal Completed</label>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- ACTION BUTTONS -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<div class="buttonGrid">
+
+<button id="saveJournalBtn">
+
+💾 Save Journal
+
+</button>
+
+<button id="exportBtn">
+
+📤 Export Backup
+
+</button>
+
+<button id="importBtn">
+
+📥 Import Backup
+
+</button>
+
+<button id="resetBtn">
+
+🗑 Reset Journal
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ========================================= -->
+<!-- PERFORMANCE DASHBOARD -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📊 Performance Dashboard</h2>
+
+<div class="statsGrid">
+
+<div class="smallCard">
+<h4>Total Trades</h4>
+<h2 id="statTotalTrades">0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Winning Trades</h4>
+<h2 id="statWins">0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Losing Trades</h4>
+<h2 id="statLosses">0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Win Rate</h4>
+<h2 id="statWinRate">0%</h2>
+</div>
+
+<div class="smallCard">
+<h4>Total Profit</h4>
+<h2 id="statProfit">₹0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Total Loss</h4>
+<h2 id="statLoss">₹0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Net Profit</h4>
+<h2 id="statNet">₹0</h2>
+</div>
+
+<div class="smallCard">
+<h4>Average RR</h4>
+<h2 id="statRR">1:0</h2>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- EQUITY CURVE -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📈 Equity Curve</h2>
+
+<canvas
+id="equityChart"
+width="900"
+height="320"
+style="
+width:100%;
+background:#111;
+border-radius:15px;
+border:1px solid #333;
+">
+</canvas>
+
+<p style="margin-top:10px;color:#999;">
+Balance growth will be drawn automatically.
+</p>
+
+</section>
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- MONTHLY CALENDAR -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📅 Monthly Calendar</h2>
+
+<div id="calendarGrid" class="calendarGrid">
+
+<div class="dayHead">Sun</div>
+<div class="dayHead">Mon</div>
+<div class="dayHead">Tue</div>
+<div class="dayHead">Wed</div>
+<div class="dayHead">Thu</div>
+<div class="dayHead">Fri</div>
+<div class="dayHead">Sat</div>
+
+<!-- Days added by JavaScript -->
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- SCREENSHOT GALLERY -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>🖼 Trade Screenshot Gallery</h2>
+
+<input
+type="file"
+id="imageUpload"
+accept="image/*"
+multiple>
+
+<div
+id="gallery"
+class="gallery">
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- TRADE HISTORY -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📖 Trade History</h2>
+
+<div style="overflow:auto;">
+
+<table id="historyTable">
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>Pair</th>
+
+<th>Direction</th>
+
+<th>Result</th>
+
+<th>RR</th>
+
+<th>P/L</th>
+
+</tr>
+
+</thead>
+
+<tbody id="historyBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- MONTHLY SUMMARY -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>🏆 Monthly Summary</h2>
+
+<div class="statsGrid">
+
+<div class="smallCard">
+
+<h4>Best Trade</h4>
+
+<h2 id="bestTrade">
+₹0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Worst Trade</h4>
+
+<h2 id="worstTrade">
+₹0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Best Day</h4>
+
+<h2 id="bestDay">
+--
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Worst Day</h4>
+
+<h2 id="worstDay">
+--
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Current Streak</h4>
+
+<h2 id="currentStreak">
+0
+</h2>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Longest Streak</h4>
+
+<h2 id="longestStreak">
+0
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- JA DL RULEBOOK -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📜 JA DL Strategy Rulebook</h2>
+
+<div class="ruleContainer">
+
+<div class="ruleCard">
+<h3>🎯 Entry Rules</h3>
+
+<ul>
+<li><input type="checkbox" id="r1"> Trade only with higher timeframe trend.</li>
+<li><input type="checkbox" id="r2"> Wait for liquidity sweep.</li>
+<li><input type="checkbox" id="r3"> Confirm MSS/BOS.</li>
+<li><input type="checkbox" id="r4"> Enter only at POI.</li>
+<li><input type="checkbox" id="r5"> Minimum RR 1:3.</li>
+</ul>
+
+</div>
+
+<div class="ruleCard">
+
+<h3>🛡 Risk Rules</h3>
+
+<ul>
+
+<li><input type="checkbox" id="r6"> ₹25 risk per trade.</li>
+
+<li><input type="checkbox" id="r7"> Maximum 3 trades.</li>
+
+<li><input type="checkbox" id="r8"> Daily stop after 3 losses.</li>
+
+<li><input type="checkbox" id="r9"> Never move Stop Loss.</li>
+
+<li><input type="checkbox" id="r10"> Respect Buffer Zone ₹750.</li>
+
+</ul>
+
+</div>
+
+<div class="ruleCard">
+
+<h3>🧠 Psychology Rules</h3>
+
+<ul>
+
+<li><input type="checkbox" id="r11"> No Revenge Trading.</li>
+
+<li><input type="checkbox" id="r12"> No FOMO Entry.</li>
+
+<li><input type="checkbox" id="r13"> Accept Losses.</li>
+
+<li><input type="checkbox" id="r14"> Wait For Confirmation.</li>
+
+<li><input type="checkbox" id="r15"> Follow Trading Plan.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- DAILY REFLECTION -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>📝 Daily Reflection</h2>
+
+<div class="inputGroup">
+
+<label>
+What did you do well today?
+</label>
+
+<textarea
+id="goodThings"
+rows="5"
+placeholder="Example: Waited patiently for setup...">
+</textarea>
+
+</div>
+
+<br>
+
+<div class="inputGroup">
+
+<label>
+Biggest Mistake
+</label>
+
+<textarea
+id="mistakes"
+rows="5"
+placeholder="Example: Entered before confirmation...">
+</textarea>
+
+</div>
+
+<br>
+
+<div class="inputGroup">
+
+<label>
+Lesson Learned
+</label>
+
+<textarea
+id="lesson"
+rows="5"
+placeholder="What did the market teach you today?">
+</textarea>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- EMOTION JOURNAL -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>😊 Emotion Journal</h2>
+
+<div class="statsGrid">
+
+<div class="smallCard">
+<h4>Before Trading</h4>
+
+<select id="emotionBefore">
+<option>😎 Calm</option>
+<option>😐 Normal</option>
+<option>😟 Nervous</option>
+<option>😡 Angry</option>
+<option>😨 Fearful</option>
+</select>
+
+</div>
+
+<div class="smallCard">
+
+<h4>After Trading</h4>
+
+<select id="emotionAfter">
+<option>😎 Calm</option>
+<option>😊 Happy</option>
+<option>😐 Neutral</option>
+<option>😔 Sad</option>
+<option>😡 Frustrated</option>
+</select>
+
+</div>
+
+<div class="smallCard">
+
+<h4>Confidence</h4>
+
+<select id="confidenceLevel">
+<option>Very High</option>
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+<option>Very Low</option>
+</select>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- ACHIEVEMENTS -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>🏅 Achievements</h2>
+
+<div class="statsGrid">
+
+<div class="smallCard">
+🏆<br><br>
+
+First Winning Trade
+
+</div>
+
+<div class="smallCard">
+🔥<br><br>
+
+5 Winning Days
+
+</div>
+
+<div class="smallCard">
+💰<br><br>
+
+₹1000 Profit
+
+</div>
+
+<div class="smallCard">
+🧠<br><br>
+
+Master Psychology
+
+</div>
+
+<div class="smallCard">
+⭐<br><br>
+
+Level 7 Trader
+
+</div>
+
+<div class="smallCard">
+👑<br><br>
+
+Elite Discipline
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- SETTINGS -->
+<!-- ========================================= -->
+
+<section class="journal">
+
+<h2>⚙ Journal Settings</h2>
+
+<div class="grid2">
+
+<div class="inputGroup">
+
+<label>
+Trader Name
+</label>
+
+<input
+type="text"
+id="traderName"
+value="Ahmed Hasan Ali">
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+Trading Strategy
+</label>
+
+<input
+type="text"
+id="strategyName"
+value="JA DL Strategy">
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+Default Capital
+</label>
+
+<input
+type="number"
+id="defaultCapital"
+value="1000">
+
+</div>
+
+<div class="inputGroup">
+
+<label>
+Default Risk
+</label>
+
+<input
+type="number"
+id="defaultRisk"
+value="25">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+<h3>
+🏆 JA TRADING COMPANY
+</h3>
+
+<p>
+
+Discipline • Patience • Consistency
+
+</p>
+
+<p>
+
+Version 2.0
+
+</p>
+
+</footer>
+
+
+
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT START -->
+<!-- ========================================= -->
+
+<script>
+
+/* ==========================================
+   JA TRADING COMPANY
+   PROFESSIONAL TRADING JOURNAL V2
+========================================== */
+
+
+/* ===========================
+   SHORTCUT FUNCTIONS
+=========================== */
+
+const $ = (id) => document.getElementById(id);
+
+const $$ = (selector) => document.querySelectorAll(selector);
+
+
+
+/* ===========================
+   LIVE CLOCK
+=========================== */
+
+function updateClock(){
+
+const now = new Date();
+
+const time = now.toLocaleTimeString("en-IN",{
+hour12:false
+});
+
+const date = now.toLocaleDateString("en-IN",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
+
+if($("liveClock"))
+$("liveClock").textContent = time;
+
+if($("todayDate"))
+$("todayDate").textContent = date;
+
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+
+
+/* ===========================
+   TODAY'S DATE
+=========================== */
+
+function setTodayDate(){
+
+if(!$("tradeDate")) return;
+
+const today = new Date();
+
+const yyyy = today.getFullYear();
+
+const mm = String(today.getMonth()+1).padStart(2,"0");
+
+const dd = String(today.getDate()).padStart(2,"0");
+
+if($("tradeDate").value==="")
+$("tradeDate").value=`${yyyy}-${mm}-${dd}`;
+
+}
+
+setTodayDate();
+
+
+
+/* ===========================
+   SAFE NUMBER
+=========================== */
+
+function numberValue(id){
+
+const el=$(id);
+
+if(!el) return 0;
+
+const value=parseFloat(el.value);
+
+return isNaN(value)?0:value;
+
+}
+
+
+
+/* ===========================
+   FORMAT MONEY
+=========================== */
+
+function money(value){
+
+return "₹"+Number(value).toFixed(2);
+
+}
+
+
+
+/* ===========================
+   AUTO UPDATE BALANCE CARD
+=========================== */
+
+function updateBalanceCard(){
+
+const end=numberValue("endingBalance");
+
+if($("currentBalanceDisplay")){
+
+$("currentBalanceDisplay").textContent=
+
+end>0 ? money(end) : "₹1000";
+
+}
+
+}
+
+document.addEventListener("input",updateBalanceCard);
+
+
+
+/* ===========================
+   SAVE STATUS
+=========================== */
+
+function showSaved(){
+
+let tag=document.getElementById("saveStatus");
+
+if(!tag){
+
+tag=document.createElement("div");
+
+tag.id="saveStatus";
+
+tag.style.position="fixed";
+
+tag.style.right="20px";
+
+tag.style.bottom="20px";
+
+tag.style.background="gold";
+
+tag.style.color="#111";
+
+tag.style.padding="10px 18px";
+
+tag.style.borderRadius="10px";
+
+tag.style.fontWeight="700";
+
+tag.style.zIndex="9999";
+
+document.body.appendChild(tag);
+
+}
+
+tag.textContent="✔ Journal Saved";
+
+clearTimeout(window.saveTimer);
+
+window.saveTimer=setTimeout(()=>{
+
+tag.textContent="";
+
+},1500);
+
+}
+
+
+
+/* ===========================
+   END OF PART 6A-1
+   CONTINUE IN PART 6A-2
+=========================== */
+
+/* ===========================
+   LOCAL STORAGE
+=========================== */
+
+const STORAGE_KEY = "JA_TRADING_COMPANY_V2";
+
+/* Save all form values */
+
+function saveJournal(){
+
+const data={};
+
+document.querySelectorAll("input, textarea, select").forEach(el=>{
+
+if(el.type==="checkbox"){
+
+data[el.id]=el.checked;
+
+}
+
+else{
+
+data[el.id]=el.value;
+
+}
+
+});
+
+localStorage.setItem(
+
+STORAGE_KEY,
+
+JSON.stringify(data)
+
+);
+
+showSaved();
+
+}
+
+/* Load saved values */
+
+function loadJournal(){
+
+const raw=localStorage.getItem(STORAGE_KEY);
+
+if(!raw) return;
+
+const data=JSON.parse(raw);
+
+Object.keys(data).forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(!el) return;
+
+if(el.type==="checkbox"){
+
+el.checked=data[id];
+
+}
+
+else{
+
+el.value=data[id];
+
+}
+
+});
+
+updateBalanceCard();
+
+updateStatistics();
+
+updatePsychology();
+
+}
+
+/* Auto Save */
+
+document.querySelectorAll(
+
+"input, textarea, select"
+
+).forEach(el=>{
+
+el.addEventListener(
+
+"input",
+
+saveJournal
+
+);
+
+el.addEventListener(
+
+"change",
+
+saveJournal
+
+);
+
+});
+
+
+/* ===========================
+   STATISTICS
+=========================== */
+
+function updateStatistics(){
+
+const result=$("result")?.value || "";
+
+const start=numberValue("startingBalance");
+const end=numberValue("endingBalance");
+
+let total=Number($("statTotalTrades")?.textContent)||0;
+let wins=Number($("statWins")?.textContent)||0;
+let losses=Number($("statLosses")?.textContent)||0;
+
+if(result==="WIN") wins=1;
+else if(result==="LOSS") losses=1;
+
+total=wins+losses;
+
+if($("statTotalTrades"))
+$("statTotalTrades").textContent=total;
+
+if($("statWins"))
+$("statWins").textContent=wins;
+
+if($("statLosses"))
+$("statLosses").textContent=losses;
+
+const rate=total===0 ? 0 :
+
+((wins/total)*100).toFixed(1);
+
+if($("statWinRate"))
+$("statWinRate").textContent=rate+"%";
+
+const pnl=end-start;
+
+if($("todayPnL"))
+$("todayPnL").textContent=money(pnl);
+
+if($("statNet"))
+$("statNet").textContent=money(pnl);
+
+if($("statProfit"))
+$("statProfit").textContent=
+
+pnl>0 ? money(pnl):"₹0.00";
+
+if($("statLoss"))
+$("statLoss").textContent=
+
+pnl<0 ? money(Math.abs(pnl)):"₹0.00";
+
+}
+
+/* Auto Update Statistics */
+
+[
+"startingBalance",
+"endingBalance",
+"result"
+
+].forEach(id=>{
+
+const el=$(id);
+
+if(el){
+
+el.addEventListener(
+
+"input",
+
+updateStatistics
+
+);
+
+el.addEventListener(
+
+"change",
+
+updateStatistics
+
+);
+
+}
+
+});
+
+
+/* ===========================
+   PSYCHOLOGY SCORE
+=========================== */
+
+function updatePsychology(){
+
+const sliders=[
+
+"discipline",
+
+"patience",
+
+"confidence",
+
+"fear",
+
+"greed",
+
+"fomo"
+
+];
+
+let total=0;
+
+sliders.forEach(id=>{
+
+const slider=$(id);
+
+const label=$(id+"Value");
+
+if(slider){
+
+if(label)
+
+label.textContent=slider.value;
+
+total+=Number(slider.value);
+
+}
+
+});
+
+const score=((total/60)*100).toFixed(0);
+
+if($("psychologyScore"))
+$("psychologyScore").textContent=
+
+score+"%";
+
+if($("mindScore"))
+$("mindScore").textContent=
+
+score+"%";
+
+}
+
+/* Auto Update Psychology */
+
+[
+"discipline",
+"patience",
+"confidence",
+"fear",
+"greed",
+"fomo"
+
+].forEach(id=>{
+
+const el=$(id);
+
+if(el){
+
+el.addEventListener(
+
+"input",
+
+updatePsychology
+
+);
+
+}
+
+});
+
+
+/* ===========================
+   INITIAL LOAD
+=========================== */
+
+window.addEventListener(
+
+"load",
+
+()=>{
+
+loadJournal();
+
+updateStatistics();
+
+updatePsychology();
+
+updateBalanceCard();
+
+});
+
+/* ===========================
+   END OF PART 6A-2
+   CONTINUE IN PART 6B
+=========================== */
+
+/* ==========================================
+   PART 6B
+   RISK MANAGER + BUFFER ZONE + STREAK
+========================================== */
+
+
+/* ===========================
+   RISK CALCULATOR
+=========================== */
+
+function updateRiskManager(){
+
+const capital=numberValue("capital");
+const risk=numberValue("riskPerTrade");
+const maxTrades=numberValue("maxTrades");
+
+const dailyRisk=risk*maxTrades;
+
+const riskPercent=
+capital>0
+?
+((risk/capital)*100).toFixed(2)
+:
+0;
+
+if($("dailyRisk"))
+$("dailyRisk").textContent=money(dailyRisk);
+
+if($("riskPercent"))
+$("riskPercent").textContent=riskPercent+"%";
+
+const balance=numberValue("endingBalance");
+
+const remaining=
+balance-750;
+
+if($("bufferRemaining")){
+
+$("bufferRemaining").textContent=
+money(remaining);
+
+}
+
+if(balance<=750){
+
+$("bufferStatus").textContent=
+"⚠ BUFFER HIT";
+
+$("bufferStatus").className=
+"loss";
+
+}
+
+else if(balance<=850){
+
+$("bufferStatus").textContent=
+"⚠ WARNING";
+
+$("bufferStatus").className=
+"warning";
+
+}
+
+else{
+
+$("bufferStatus").textContent=
+"SAFE";
+
+$("bufferStatus").className=
+"safe";
+
+}
+
+}
+
+
+
+/* ===========================
+AUTO UPDATE RISK
+=========================== */
+
+[
+"capital",
+"riskPerTrade",
+"maxTrades",
+"endingBalance"
+
+].forEach(id=>{
+
+const el=$(id);
+
+if(el){
+
+el.addEventListener(
+"input",
+updateRiskManager
+);
+
+el.addEventListener(
+"change",
+updateRiskManager
+);
+
+}
+
+});
+
+
+
+
+
+/* ===========================
+DAILY STREAK
+=========================== */
+
+function updateStreak(){
+
+let streak=
+
+Number(
+
+localStorage.getItem(
+"JA_STREAK"
+)
+
+||0);
+
+
+
+const result=
+
+$("result")?.value;
+
+
+
+if(result==="WIN"){
+
+streak++;
+
+}
+
+else if(result==="LOSS"){
+
+streak=0;
+
+}
+
+
+
+localStorage.setItem(
+
+"JA_STREAK",
+
+streak
+
+);
+
+
+
+if($("streak")){
+
+$("streak").textContent=
+
+streak+" Days";
+
+}
+
+
+
+if($("currentStreak")){
+
+$("currentStreak").textContent=
+
+streak;
+
+}
+
+
+
+let longest=
+
+Number(
+
+localStorage.getItem(
+"JA_LONGEST"
+)
+
+||0);
+
+
+
+if(streak>longest){
+
+longest=streak;
+
+localStorage.setItem(
+
+"JA_LONGEST",
+
+longest
+
+);
+
+}
+
+
+
+if($("longestStreak")){
+
+$("longestStreak").textContent=
+
+longest;
+
+}
+
+}
+
+
+
+
+
+if($("saveJournalBtn")){
+
+$("saveJournalBtn").addEventListener(
+
+"click",
+
+()=>{
+
+saveJournal();
+
+updateStatistics();
+
+updatePsychology();
+
+updateRiskManager();
+
+updateStreak();
+
+alert("Journal Saved Successfully!");
+
+}
+
+);
+
+}
+
+
+
+
+
+/* ===========================
+AUTO LOAD RISK
+=========================== */
+
+window.addEventListener(
+
+"load",
+
+()=>{
+
+updateRiskManager();
+
+updateStreak();
+
+});
+
+
+
+
+
+/* ===========================
+END OF PART 6B
+CONTINUE IN PART 7
+=========================== */
+
+/* ==========================================
+   PART 7A
+   CALENDAR SYSTEM
+========================================== */
+
+
+/* ===========================
+   CALENDAR VARIABLES
+=========================== */
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+const monthNames=[
+"January","February","March",
+"April","May","June",
+"July","August","September",
+"October","November","December"
+];
+
+
+/* ===========================
+   CREATE CALENDAR
+=========================== */
+
+function createCalendar(){
+
+const calendar=$("calendarGrid");
+
+if(!calendar) return;
+
+/* Remove old dates */
+
+calendar.querySelectorAll(".dayCell").forEach(day=>day.remove());
+
+const firstDay=new Date(currentYear,currentMonth,1).getDay();
+
+const totalDays=new Date(currentYear,currentMonth+1,0).getDate();
+
+/* Empty boxes before 1st */
+
+for(let i=0;i<firstDay;i++){
+
+const empty=document.createElement("div");
+
+calendar.appendChild(empty);
+
+}
+
+/* Create Days */
+
+for(let day=1;day<=totalDays;day++){
+
+const box=document.createElement("div");
+
+box.className="dayCell";
+
+box.innerHTML=
+
+`
+<div style="font-weight:bold;font-size:18px;">
+${day}
+</div>
+
+<div style="margin-top:8px;font-size:12px;color:#888;">
+No Trade
+</div>
+`;
+
+box.dataset.day=day;
+
+box.onclick=()=>selectTradingDay(box);
+
+calendar.appendChild(box);
+
+}
+
+loadCalendarData();
+
+}
+
+
+
+/* ===========================
+   SELECT DAY
+=========================== */
+
+function selectTradingDay(box){
+
+document
+
+.querySelectorAll(".dayCell")
+
+.forEach(cell=>{
+
+cell.style.outline="none";
+
+});
+
+box.style.outline="3px solid gold";
+
+const selectedDate=
+
+`${currentYear}-${
+String(currentMonth+1).padStart(2,"0")
+}-${
+String(box.dataset.day).padStart(2,"0")
+}`;
+
+if($("tradeDate"))
+
+$("tradeDate").value=
+
+selectedDate;
+
+saveJournal();
+
+}
+
+
+
+/* ===========================
+   UPDATE DAY RESULT
+=========================== */
+
+function updateCalendarDay(){
+
+if(!$("tradeDate")) return;
+
+const value=$("tradeDate").value;
+
+if(value==="") return;
+
+const parts=value.split("-");
+
+const day=Number(parts[2]);
+
+const result=$("result").value;
+
+const allDays=
+
+document.querySelectorAll(".dayCell");
+
+allDays.forEach(cell=>{
+
+if(Number(cell.dataset.day)===day){
+
+cell.classList.remove(
+
+"dayProfit",
+"dayLoss",
+"dayNeutral"
+
+);
+
+if(result==="WIN"){
+
+cell.classList.add("dayProfit");
+
+cell.children[1].textContent="Profit";
+
+}
+
+else if(result==="LOSS"){
+
+cell.classList.add("dayLoss");
+
+cell.children[1].textContent="Loss";
+
+}
+
+else{
+
+cell.classList.add("dayNeutral");
+
+cell.children[1].textContent="BE";
+
+}
+
+}
+
+});
+
+saveCalendarData();
+
+}
+
+
+
+/* ===========================
+   SAVE CALENDAR
+=========================== */
+
+function saveCalendarData(){
+
+const data=[];
+
+document.querySelectorAll(".dayCell").forEach(day=>{
+
+data.push({
+
+day:day.dataset.day,
+
+className:day.className,
+
+text:day.children[1].textContent
+
+});
+
+});
+
+localStorage.setItem(
+
+"JA_CALENDAR",
+
+JSON.stringify(data)
+
+);
+
+}
+
+
+
+/* ===========================
+   LOAD CALENDAR
+=========================== */
+
+function loadCalendarData(){
+
+const raw=
+
+localStorage.getItem(
+
+"JA_CALENDAR"
+
+);
+
+if(!raw) return;
+
+const data=JSON.parse(raw);
+
+document.querySelectorAll(".dayCell").forEach(day=>{
+
+const found=data.find(
+
+d=>d.day===day.dataset.day
+
+);
+
+if(found){
+
+day.className=found.className;
+
+day.children[1].textContent=found.text;
+
+}
+
+});
+
+}
+
+
+
+/* ===========================
+   MONTH NAVIGATION
+=========================== */
+
+function nextMonth(){
+
+currentMonth++;
+
+if(currentMonth>11){
+
+currentMonth=0;
+
+currentYear++;
+
+}
+
+createCalendar();
+
+}
+
+function previousMonth(){
+
+currentMonth--;
+
+if(currentMonth<0){
+
+currentMonth=11;
+
+currentYear--;
+
+}
+
+createCalendar();
+
+}
+
+
+
+/* ===========================
+   AUTO EVENTS
+=========================== */
+
+if($("result")){
+
+$("result").addEventListener(
+
+"change",
+
+updateCalendarDay
+
+);
+
+}
+
+window.addEventListener(
+
+"load",
+
+createCalendar
+
+);
+
+
+/* ==========================================
+   END OF PART 7A
+   CONTINUE IN PART 7B
+========================================== */
+
+/* ==========================================
+   PART 7B-1
+   SCREENSHOT GALLERY
+========================================== */
+
+
+/* ===========================
+   GALLERY VARIABLES
+=========================== */
+
+let galleryImages=[];
+
+
+/* ===========================
+   RENDER GALLERY
+=========================== */
+
+function renderGallery(){
+
+const gallery=$("gallery");
+
+if(!gallery) return;
+
+gallery.innerHTML="";
+
+galleryImages.forEach((image,index)=>{
+
+const card=document.createElement("div");
+
+card.style.position="relative";
+
+card.style.background="#111";
+
+card.style.border="1px solid #333";
+
+card.style.borderRadius="15px";
+
+card.style.padding="10px";
+
+card.style.overflow="hidden";
+
+
+
+const img=document.createElement("img");
+
+img.src=image;
+
+img.style.width="100%";
+
+img.style.height="180px";
+
+img.style.objectFit="cover";
+
+img.style.borderRadius="10px";
+
+
+
+const title=document.createElement("div");
+
+title.textContent="Trade Screenshot "+(index+1);
+
+title.style.marginTop="10px";
+
+title.style.textAlign="center";
+
+title.style.fontWeight="600";
+
+title.style.color="gold";
+
+
+
+const remove=document.createElement("button");
+
+remove.textContent="🗑 Delete";
+
+remove.style.marginTop="10px";
+
+remove.style.width="100%";
+
+remove.onclick=()=>{
+
+deleteImage(index);
+
+};
+
+
+
+card.appendChild(img);
+
+card.appendChild(title);
+
+card.appendChild(remove);
+
+gallery.appendChild(card);
+
+});
+
+}
+
+
+
+/* ===========================
+   IMAGE UPLOAD
+=========================== */
+
+if($("imageUpload")){
+
+$("imageUpload").addEventListener(
+
+"change",
+
+function(event){
+
+const files=
+
+Array.from(event.target.files);
+
+files.forEach(file=>{
+
+if(!file.type.startsWith("image/"))
+
+return;
+
+const reader=
+
+new FileReader();
+
+reader.onload=function(e){
+
+galleryImages.push(
+
+e.target.result
+
+);
+
+renderGallery();
+
+saveGallery();
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+});
+
+}
+
+
+
+/* ===========================
+   DELETE IMAGE
+=========================== */
+
+function deleteImage(index){
+
+galleryImages.splice(index,1);
+
+renderGallery();
+
+saveGallery();
+
+}
+
+
+
+/* ==========================================
+   END OF PART 7B-1
+   CONTINUE IN PART 7B-2
+========================================== */
+
+/* ==========================================
+   PART 7B-2
+   GALLERY SAVE & RESTORE
+========================================== */
+
+
+/* ===========================
+   SAVE GALLERY
+=========================== */
+
+function saveGallery(){
+
+try{
+
+localStorage.setItem(
+
+"JA_GALLERY",
+
+JSON.stringify(galleryImages)
+
+);
+
+}
+
+catch(error){
+
+alert(
+
+"Gallery storage is full. Please delete some screenshots."
+
+);
+
+}
+
+}
+
+
+
+/* ===========================
+   LOAD GALLERY
+=========================== */
+
+function loadGallery(){
+
+const saved=
+
+localStorage.getItem(
+
+"JA_GALLERY"
+
+);
+
+if(!saved) return;
+
+try{
+
+galleryImages=
+
+JSON.parse(saved) || [];
+
+renderGallery();
+
+}
+
+catch(error){
+
+galleryImages=[];
+
+}
+
+}
+
+
+
+/* ===========================
+   CLEAR GALLERY
+=========================== */
+
+function clearGallery(){
+
+if(
+
+!confirm(
+
+"Delete all screenshots?"
+
+)
+
+)
+
+return;
+
+galleryImages=[];
+
+renderGallery();
+
+saveGallery();
+
+}
+
+
+
+/* ===========================
+   DOWNLOAD IMAGE
+=========================== */
+
+function downloadImage(index){
+
+const link=
+
+document.createElement("a");
+
+link.href=
+
+galleryImages[index];
+
+link.download=
+
+"Trade_"+(index+1)+".png";
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
+
+}
+
+
+
+/* ===========================
+   ADD DOWNLOAD BUTTONS
+=========================== */
+
+const oldRenderGallery=
+
+renderGallery;
+
+renderGallery=function(){
+
+oldRenderGallery();
+
+const cards=
+
+document.querySelectorAll("#gallery > div");
+
+cards.forEach((card,index)=>{
+
+const btn=
+
+document.createElement("button");
+
+btn.innerHTML="⬇ Download";
+
+btn.style.marginTop="8px";
+
+btn.style.width="100%";
+
+btn.onclick=function(){
+
+downloadImage(index);
+
+};
+
+card.appendChild(btn);
+
+});
+
+};
+
+
+
+/* ===========================
+   LOAD ON STARTUP
+=========================== */
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+loadGallery();
+
+}
+
+);
+
+
+
+/* ==========================================
+   END OF PART 7B-2
+   CONTINUE IN PART 7C
+========================================== */
+
+/* ==========================================
+   EQUITY CURVE
+========================================== */
+
+let equityHistory = [];
+
+function updateEquityCurve(){
+
+const canvas = document.getElementById("equityChart");
+
+if(!canvas) return;
+
+const ctx = canvas.getContext("2d");
+
+const balance = numberValue("endingBalance");
+
+if(balance>0){
+    equityHistory.push(balance);
+}
+if(equityHistory.length>100){
+
+equityHistory.shift();
+
+}
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+/* Background */
+
+ctx.fillStyle="#0f0f0f";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+if(equityHistory.length<2) return;
+
+const min=Math.min(...equityHistory);
+const max=Math.max(...equityHistory);
+
+const range=(max-min)||1;
+
+ctx.beginPath();
+
+ctx.lineWidth=3;
+
+ctx.strokeStyle="gold";
+
+equityHistory.forEach((value,index)=>{
+
+const x=(index/(equityHistory.length-1))*(canvas.width-40)+20;
+
+const y=canvas.height-20-
+
+((value-min)/range)*(canvas.height-40);
+
+if(index===0){
+
+ctx.moveTo(x,y);
+
+}
+
+else{
+
+ctx.lineTo(x,y);
+
+}
+
+});
+
+ctx.stroke();
+
+}
+
+
+
+/* ==========================================
+   CHART UPDATES
+========================================== */
+
+if($("endingBalance")){
+
+$("endingBalance").addEventListener(
+
+"input",
+
+updateEquityCurve
+
+);
+
+$("endingBalance").addEventListener(
+
+"change",
+
+updateEquityCurve
+
+);
+
+}
+
+
+
+/* ==========================================
+   INITIALIZATION
+========================================== */
+
+window.addEventListener("load",()=>{
+
+updateClock();
+
+setTodayDate();
+
+loadJournal();
+
+loadGallery();
+
+createCalendar();
+
+updateStatistics();
+
+updatePsychology();
+
+updateRiskManager();
+
+updateBalanceCard();
+
+updateEquityCurve();
+
+});
+
+console.log(
+"JA TRADING COMPANY Journal Loaded Successfully."
+);
+
+
+
+
+
+
+
+
+function addTradeToHistory(){
+
+const body = document.getElementById("historyBody");
+if(!body) return;
+
+const row = document.createElement("tr");
+
+row.innerHTML = `
+<td>${tradeDate.value}</td>
+<td>${pair.value}</td>
+<td>${direction.value}</td>
+<td>${result.value}</td>
+<td>${rr.value}</td>
+<td>${money(Number(endingBalance.value)-Number(startingBalance.value))}</td>
+`;
+
+body.prepend(row);
+}
+
+saveJournalBtn.addEventListener("click",function(){
+
+saveJournal();
+addTradeToHistory();
+
+});
+
+
+
+
+/* ==========================================
+   END OF SCRIPT
+========================================== */
+
+</script>
+
+</body>
+</html>
