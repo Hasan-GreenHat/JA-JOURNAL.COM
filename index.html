@@ -3850,7 +3850,70 @@ addTradeToHistory();
 
 });
 
+/* ===========================
+   RESET JOURNAL
+=========================== */
 
+if ($("resetBtn")) {
+
+    $("resetBtn").addEventListener("click", function () {
+
+        const confirmReset = confirm(
+            "Are you sure you want to reset the entire journal?\n\nThis cannot be undone."
+        );
+
+        if (!confirmReset) return;
+
+        // Clear Local Storage
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem("JA_CALENDAR");
+        localStorage.removeItem("JA_GALLERY");
+        localStorage.removeItem("JA_STREAK");
+        localStorage.removeItem("JA_LONGEST");
+
+        // Reset all inputs
+        document.querySelectorAll("input, textarea, select").forEach(el => {
+
+            if (el.type === "checkbox") {
+                el.checked = false;
+            } else if (el.type === "range") {
+                el.value = 5;
+            } else if (el.type === "number") {
+                el.value = "";
+            } else {
+                el.value = "";
+            }
+
+        });
+
+        // Clear trade history
+        if ($("historyBody")) {
+            $("historyBody").innerHTML = "";
+        }
+
+        // Clear gallery
+        galleryImages = [];
+        if ($("gallery")) {
+            $("gallery").innerHTML = "";
+        }
+
+        // Reset equity curve
+        equityHistory = [];
+
+        // Recreate calendar
+        createCalendar();
+
+        // Refresh dashboard
+        updateStatistics();
+        updatePsychology();
+        updateRiskManager();
+        updateBalanceCard();
+
+        alert("✅ Journal has been reset successfully.");
+
+    });
+
+}
 
 
 /* ==========================================
