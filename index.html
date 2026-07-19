@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JA Funded Journal</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="top-bar">
+
+<div class="logo">
+
+<h2>JA Funded Journal</h2>
+
+<p>AquaFunded $1,000 Instant Account</p>
+
+</div>
+
+<div class="top-buttons">
+
+<button id="saveBtn">
+<i class="fa-solid fa-floppy-disk"></i>
+Save
+</button>
+
+<button id="resetBtn">
+<i class="fa-solid fa-rotate-right"></i>
+Reset
+</button>
+
+</div>
+
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+<div class="card">
+
+<h3>Account Balance</h3>
+
+<h1 id="balance">$1000.00</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total Profit</h3>
+
+<h1 id="profit">$0.00</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Payout Progress</h3>
+
+<h1 id="payoutPercent">0%</h1>
+
+<p>$100 Target</p>
+
+</div>
+
+<div class="card danger">
+
+<h3>Daily Drawdown Left</h3>
+
+<h1 id="dailyDD">$30.00</h1>
+
+</div>
+
+<div class="card warning">
+
+<h3>Trailing Drawdown</h3>
+
+<h1 id="trailDD">$950.00</h1>
+
+</div>
+
+<div class="card red">
+
+<h3>Floating Loss Limit</h3>
+
+<h1>$20.00</h1>
+
+</div>
+
+</section>
+
+<!-- ================= ACCOUNT INFO ================= -->
+
+<section class="info-grid">
+
+<div class="info-box">
+
+<h2>Account Information</h2>
+
+<div class="info-row">
+<span>Firm</span>
+<strong>AquaFunded</strong>
+</div>
+
+<div class="info-row">
+<span>Account Size</span>
+<strong>$1000</strong>
+</div>
+
+<div class="info-row">
+<span>Risk Per Trade</span>
+<strong>$5</strong>
+</div>
+
+<div class="info-row">
+<span>Daily Target</span>
+<strong>$7.5 - $10</strong>
+</div>
+
+<div class="info-row">
+<span>Max Trades</span>
+<strong>3</strong>
+</div>
+
+<div class="info-row">
+<span>Floating Loss</span>
+<strong>$20</strong>
+</div>
+
+<div class="info-row">
+<span>Daily DD</span>
+<strong>$30</strong>
+</div>
+
+<div class="info-row">
+<span>Total DD</span>
+<strong>$50</strong>
+</div>
+
+</div>
+
+<div class="info-box">
+
+<h2>Payout Goal</h2>
+
+<div class="progress">
+
+<div class="progress-fill" id="progressFill"></div>
+
+</div>
+
+<h1 id="progressMoney">$0 / $100</h1>
+
+<p class="center">
+Goal:
+<b>15-20 Trading Days</b>
+</p>
+
+<div class="goal-box">
+
+<div>
+
+<h3 id="daysCompleted">0</h3>
+
+<p>Trading Days</p>
+
+</div>
+
+<div>
+
+<h3 id="remainingGoal">$100</h3>
+
+<p>Remaining</p>
+
+</div>
+
+<div>
+
+<h3 id="avgNeeded">$5.00</h3>
+
+<p>Avg / Day</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= DAILY CHECKLIST ================= -->
+
+<section class="checklist">
+
+<h2>Trading Rules Checklist</h2>
+
+<div class="check-grid">
+
+<label>
+<input type="checkbox" id="c1">
+Maximum 3 Trades
+</label>
+
+<label>
+<input type="checkbox" id="c2">
+Risk Only $5 Per Trade
+</label>
+
+<label>
+<input type="checkbox" id="c3">
+No Revenge Trading
+</label>
+
+<label>
+<input type="checkbox" id="c4">
+No FOMO Entry
+</label>
+
+<label>
+<input type="checkbox" id="c5">
+Only JA DL Strategy
+</label>
+
+<label>
+<input type="checkbox" id="c6">
+Stop After Target Hit
+</label>
+
+<label>
+<input type="checkbox" id="c7">
+Journal Updated
+</label>
+
+</div>
+
+</section>
+
+<!-- ================= QUICK STATS ================= -->
+
+<section class="stats">
+
+<div class="mini-card">
+
+<h3>Win Rate</h3>
+
+<h2 id="winRate">0%</h2>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Total Trades</h3>
+
+<h2 id="totalTrades">0</h2>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Winning Days</h3>
+
+<h2 id="winningDays">0</h2>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Largest Winning Day</h3>
+
+<h2 id="largestDay">$0</h2>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Consistency</h3>
+
+<h2 id="consistency">0%</h2>
+
+</div>
+
+<div class="mini-card">
+
+<h3>Status</h3>
+
+<h2 id="status">Safe ✅</h2>
+
+</div>
+
+</section>
+
+<!-- ================= JOURNAL STARTS IN PART 2 ================= -->
+
+<!-- ================= DAILY JOURNAL ================= -->
+
+<section class="journal">
+
+<h2>20-Day Trading Journal</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Day</th>
+<th>Date</th>
+<th>Start</th>
+<th>Trades</th>
+<th>W</th>
+<th>L</th>
+<th>P/L ($)</th>
+<th>End</th>
+<th>Rule</th>
+<th>Notes</th>
+</tr>
+
+</thead>
+
+<tbody id="journalBody">
+
+<!-- 20 Rows -->
+
+<tr>
+<td>1</td>
+<td><input type="date"></td>
+<td><input type="number" class="startBalance" value="1000"></td>
+<td><input type="number" class="trades" min="0" max="3"></td>
+<td><input type="number" class="wins"></td>
+<td><input type="number" class="losses"></td>
+<td><input type="number" class="profit"></td>
+<td><input type="number" class="endBalance"></td>
+<td><input type="checkbox" class="rule"></td>
+<td><input type="text" class="notes"></td>
+</tr>
+
+<script>
+
+for(let i=2;i<=20;i++){
+
+document.write(`
+
+<tr>
+
+<td>${i}</td>
+
+<td><input type="date"></td>
+
+<td><input type="number" class="startBalance"></td>
+
+<td><input type="number" class="trades" min="0" max="3"></td>
+
+<td><input type="number" class="wins"></td>
+
+<td><input type="number" class="losses"></td>
+
+<td><input type="number" class="profit"></td>
+
+<td><input type="number" class="endBalance"></td>
+
+<td><input type="checkbox" class="rule"></td>
+
+<td><input type="text" class="notes"></td>
+
+</tr>
+
+`);
+
+}
+
+</script>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ================= NOTES ================= -->
+
+<section class="notes-section">
+
+<h2>Trading Notes</h2>
+
+<textarea
+id="dailyNotes"
+placeholder="Write your psychology, mistakes, lessons, screenshots etc..."></textarea>
+
+</section>
+
+<!-- ================= WEEKLY REVIEW ================= -->
+
+<section class="review">
+
+<h2>Weekly Review</h2>
+
+<div class="review-grid">
+
+<div class="review-card">
+<h3>Total Trades</h3>
+<h1 id="reviewTrades">0</h1>
+</div>
+
+<div class="review-card">
+<h3>Wins</h3>
+<h1 id="reviewWins">0</h1>
+</div>
+
+<div class="review-card">
+<h3>Losses</h3>
+<h1 id="reviewLosses">0</h1>
+</div>
+
+<div class="review-card">
+<h3>Profit</h3>
+<h1 id="reviewProfit">$0</h1>
+</div>
+
+<div class="review-card">
+<h3>Average RR</h3>
+<h1>1 : 2</h1>
+</div>
+
+<div class="review-card">
+<h3>Largest Day</h3>
+<h1 id="largestWin">$0</h1>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PAYOUT STATUS ================= -->
+
+<section class="payout">
+
+<h2>Payout Tracker</h2>
+
+<div class="progress-large">
+
+<div class="progress-fill-large"
+id="bigProgress">
+
+</div>
+
+</div>
+
+<h1 id="payoutText">
+
+$0 / $100
+
+</h1>
+
+<p>
+
+Goal:
+Reach $100 before Day 20.
+
+</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+
+JA Funded Journal
+
+<br>
+
+Built for AquaFunded Instant Account
+
+</p>
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
